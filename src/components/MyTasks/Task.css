@@ -1,0 +1,33 @@
+.task-card {
+    width: 320px;
+    background: #3C6EE0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.task-image {
+    width: 100%;
+    height: 200px;
+}
+
+.task-body {
+    padding: 20px;
+}
+
+.task-title {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.task-details {
+    height: 75px;
+    margin: 10px 0;
+}
+
+.task-button {
+    background: #2554C2;
+    padding: 4px;
+    border-radius: 8px;
+    color: #80A4F1;
+    font-size: 35px;
+}

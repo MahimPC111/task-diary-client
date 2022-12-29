@@ -1,13 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto Slab', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.form-bg {
+  background-color: lightcyan;
+}
+
+.form-bg:hover {
+  background-color: lightblue;
+}
+
+.form-title {
+  color: #1B1464
+}
+
+.section-title {
+  color: #EE5A24;
+}
+
+.animation-text {
+  font-size: 4rem;
+}
+
+.span {
+  font-size: 40px;
+}
+
+.button {
+  color: rgb(181, 181, 255);
+  text-align: center;
+  padding: 5px 0;
+  margin-top: 20px;
+  width: 100%;
+  background: #5758BB;
+  border: 1px solid rgb(35, 35, 243);
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.button:hover {
+  color: #5758BB;
+  background: rgb(176, 176, 241);
+}
+
+.text-input {
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: 2px solid rgb(70, 70, 70);
+}
+
+.text-input:hover {
+  border: 2px solid lightseagreen
+}
+
+
+@media screen and (min-width: 576px) and (max-width: 992px) {
+  .animation-text {
+    font-size: 3rem;
+  }
+
+  .span {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .animation-text {
+    font-size: 2rem;
+  }
+
+  .span {
+    font-size: 20px;
+  }
 }

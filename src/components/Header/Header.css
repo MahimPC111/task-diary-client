@@ -1,0 +1,51 @@
+.active {
+    background-color: rgb(200, 223, 0);
+    padding: 0 10px;
+    border-radius: 15px;
+    color: black !important;
+}
+
+.header-link {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none !important;
+}
+
+.header-link:hover {
+    color: yellow;
+}
+
+.button-logout {
+    border-radius: 10px;
+    background-color: rgb(200, 223, 0);
+    border: 0;
+    font-weight: 500;
+}
+
+.button-logout:hover {
+    background-color: rgb(230, 248, 66);
+}
+
+@media screen and (min-width: 576px) and (max-width: 992px) {
+    .active {
+        padding: 2px 0;
+    }
+
+    .header-link {
+        margin-left: 0;
+        margin-top: 3px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .active {
+        padding: 2px 0;
+    }
+
+    .header-link {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+}
