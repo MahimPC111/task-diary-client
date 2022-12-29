@@ -6,7 +6,7 @@ import MyTask from './MyTask';
 const MyTasks = () => {
     const [tasks, setTasks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tasks')
+        fetch('http://localhost:5000/tasks?status=incomplete')
             .then(res => res.json())
             .then(data => {
                 setTasks(data)
@@ -14,7 +14,7 @@ const MyTasks = () => {
     }, [])
 
     const handleDelete = id => {
-        const proceed = window.confirm('Are you sure to delete this review?');
+        const proceed = window.confirm('Are you sure to delete this task?');
 
         if (proceed) {
             fetch(`http://localhost:5000/tasks/${id}`, {

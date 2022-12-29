@@ -6,7 +6,7 @@ import { AiFillFile } from 'react-icons/ai';
 import './Task.css'
 import { Link } from 'react-router-dom';
 
-const MyTask = ({ task, handleDelete }) => {
+const MyTask = ({ task, handleDelete, handleCompleted }) => {
     const { _id, title, details, task_image } = task;
     return (
         <div className='task-card col-4 p-0 mx-auto'>
@@ -23,7 +23,7 @@ const MyTask = ({ task, handleDelete }) => {
                     <Link to={`/myTask/${_id}`}><AiFillFile className='task-button' /></Link>
                     <Link to={`/editTask/${_id}`}><AiFillEdit className='task-button' /></Link>
                     <FaTrash onClick={() => handleDelete(_id)} className='task-button' />
-                    <MdAssignmentTurnedIn className='task-button' />
+                    <MdAssignmentTurnedIn onClick={() => handleCompleted(_id)} className='task-button' />
                 </div>
             </div>
         </div>
