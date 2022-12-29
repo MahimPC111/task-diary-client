@@ -35,6 +35,7 @@ const EditTask = () => {
                 }
             })
     }
+
     return (
         <form onSubmit={handleSubmit} className='form-bg w-75 w-sm-50 mx-auto my-5 border border-info rounded-3 p-3 p-sm-4 p-md-5'>
             <input name='title' type="text" className="w-100 text-input mt-3" defaultValue={task.title} />

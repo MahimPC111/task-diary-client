@@ -3,7 +3,6 @@ import { AiFillEdit } from 'react-icons/ai';
 import { FaTrash } from 'react-icons/fa';
 import { MdAssignmentTurnedIn } from 'react-icons/md';
 import { AiFillFile } from 'react-icons/ai';
-import './Task.css'
 import { Link } from 'react-router-dom';
 
 const MyTask = ({ task, handleDelete, handleCompleted }) => {
@@ -20,10 +19,10 @@ const MyTask = ({ task, handleDelete, handleCompleted }) => {
                         details
                 }</div>
                 <div className='d-flex justify-content-around'>
-                    <Link to={`/myTask/${_id}`}><AiFillFile className='task-button' /></Link>
-                    <Link to={`/editTask/${_id}`}><AiFillEdit className='task-button' /></Link>
-                    <FaTrash onClick={() => handleDelete(_id)} className='task-button' />
-                    <MdAssignmentTurnedIn onClick={() => handleCompleted(_id)} className='task-button' />
+                    <Link title='Task details' to={`/myTask/${_id}`}><AiFillFile className='task-button' /></Link>
+                    <Link title='Task edit' to={`/editTask/${_id}`}><AiFillEdit className='task-button' /></Link>
+                    <FaTrash title='Delete Task' onClick={() => handleDelete(_id)} className='task-button' />
+                    <MdAssignmentTurnedIn title='Completed task' onClick={() => handleCompleted(_id)} className='task-button' />
                 </div>
             </div>
         </div>

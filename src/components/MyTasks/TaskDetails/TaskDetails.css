@@ -7,7 +7,7 @@
 
 .task-details-image {
     width: 100%;
-    height: 400px;
+    height: 400px !important;
 }
 
 .task-details-title {

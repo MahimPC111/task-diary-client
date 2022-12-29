@@ -16,7 +16,7 @@ body {
 }
 
 .form-title {
-  color: #1B1464
+  color: #2554C2;
 }
 
 .section-title {
@@ -32,30 +32,71 @@ body {
 }
 
 .button {
-  color: rgb(181, 181, 255);
+  color: #2554C2;
+  background: #80A4F1;
   text-align: center;
   padding: 5px 0;
   margin-top: 20px;
   width: 100%;
-  background: #5758BB;
-  border: 1px solid #3e41bd;
+  border: 1px solid #2554C2;
   border-radius: 10px;
   font-weight: 500;
 }
 
 .button:hover {
-  color: #3e41bd;
-  background: rgb(176, 176, 241);
+  cursor: pointer;
+  color: #80A4F1;
+  background: #2554C2;
+}
+
+.task-card {
+  max-width: 320px !important;
+  background: #3C6EE0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.task-image {
+  width: 100%;
+  height: 200px !important
+}
+
+.task-body {
+  padding: 20px;
+}
+
+.task-title {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.task-details {
+  height: 75px;
+  margin: 10px 0;
+}
+
+.task-button {
+  background: #2554C2;
+  color: #80A4F1;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 35px;
+}
+
+.task-button:hover {
+  cursor: pointer;
+  color: #2554C2;
+  background: #80A4F1;
 }
 
 .text-input {
   border-radius: 10px;
   padding: 5px 10px;
-  border: 2px solid rgb(70, 70, 70);
+  border: 2px solid #3C6EE0;
 }
 
 .text-input:hover {
-  border: 2px solid lightseagreen
+  border: 2px solid #2554C2;
 }
 
 

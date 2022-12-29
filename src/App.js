@@ -45,8 +45,8 @@ function App() {
           element: <CompletedTasks></CompletedTasks>
         },
         {
-          path: '/completedTask/comments/:id',
-          loader: ({ params }) => fetch(`http://localhost:5000/completedTask/comments/${params.id}`),
+          path: '/myComment/:id',
+          loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
           element: <Comments></Comments>
         },
         {

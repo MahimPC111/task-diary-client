@@ -6,7 +6,7 @@ const TaskDetails = () => {
     const data = useLoaderData();
     const { title, details, task_image } = data;
     return (
-        <div className='task-details-card p-5'>
+        <div className='task-details-card p-5 mt-5'>
             <div className='d-flex justify-content-between'>
                 <img className='task-details-image img-fluid w-50' src={task_image} alt='' />
                 <div className='w-50 p-2'>
