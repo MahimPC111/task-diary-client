@@ -18,7 +18,6 @@ const Home = () => {
                                 2000,
                                 'Task Diary',
                                 2000,
-                                () => { }
                             ]}
                             wrapper="div"
                             cursor={true}
