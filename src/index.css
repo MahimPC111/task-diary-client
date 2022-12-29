@@ -38,13 +38,13 @@ body {
   margin-top: 20px;
   width: 100%;
   background: #5758BB;
-  border: 1px solid rgb(35, 35, 243);
+  border: 1px solid #3e41bd;
   border-radius: 10px;
   font-weight: 500;
 }
 
 .button:hover {
-  color: #5758BB;
+  color: #3e41bd;
   background: rgb(176, 176, 241);
 }
 
