@@ -21,7 +21,7 @@ const Register = () => {
         createUser(data.email, data.password)
             .then(() => {
                 navigate('/')
-                toast.success('User registered successfully')
+                toast.success('Successfully registered!')
             })
             .catch(e => {
                 toast.error(e.message)

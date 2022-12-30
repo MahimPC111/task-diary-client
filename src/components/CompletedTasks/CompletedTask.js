@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
 const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
-    const { _id, title, details, task_image } = task;
+    const { _id, title, details } = task;
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -35,8 +35,7 @@ const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
     }
 
     return (
-        <div className='task-card col-4 p-0 mx-auto my-4'>
-            <img className='task-image img-fluid' src={task_image} alt='' />
+        <div className='task-card col-lg-6 p-0 mx-auto my-3'>
             <div className='task-body'>
                 <div className='task-title'>{title}</div>
                 <div className='task-details'>{
@@ -47,11 +46,13 @@ const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
                 }</div>
                 <div className='d-flex justify-content-around'>
                     <FaTrash title='Delete task' onClick={() => handleDelete(_id)} className='task-button' />
+
                     <BsFileEarmarkExcelFill title='Incomplete task' onClick={() => handleNotCompleted(_id)} className='task-button' />
-                    <Link to={`/myComment/${_id}`}><FaCommentAlt title='Load comments' className='task-button' /></Link>
+
+                    <Link to={`/myComment/${_id}`}><FaCommentAlt title='View comments' className='task-button' /></Link>
                 </div>
                 <div>
-                    <form onSubmit={handleSubmit} className='mx-auto my-5'>
+                    <form onSubmit={handleSubmit} className='mx-auto mt-2'>
                         <textarea name='body' className="w-100 text-input" placeholder='Drop your comment'></textarea>
                         <button className='button'>Post</button>
                     </form>

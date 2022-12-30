@@ -17,13 +17,15 @@
 
 .button-logout {
     border-radius: 10px;
-    background-color: rgb(200, 223, 0);
-    border: 0;
+    background: transparent;
+    color: white;
+    border: 1px solid yellow;
     font-weight: 500;
 }
 
 .button-logout:hover {
-    background-color: rgb(230, 248, 66);
+    background: yellow;
+    color: black;
 }
 
 @media screen and (min-width: 576px) and (max-width: 992px) {

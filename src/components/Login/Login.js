@@ -2,15 +2,20 @@ import React from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import Loader from '../Loader/Loader';
 import img from '../../assets/authentication-image.jpg'
+import { ImGoogle } from 'react-icons/im';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { logInUser, loading } = useContext(AuthContext)
+    const { logInUser, signInWithGoogle, loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
+    const location = useLocation();
+    const googleProvider = new GoogleAuthProvider();
+    const from = location?.state?.from?.pathname || '/';
 
     if (loading) {
         return <Loader></Loader>
@@ -20,13 +25,29 @@ const Login = () => {
 
         logInUser(data.email, data.password)
             .then(() => {
-                navigate('/')
-                toast.success('User logged in successfully')
+                setLoading(false)
+                navigate(from, { replace: true });
+                toast.success('Successfully logged in!');
             })
             .catch(e => {
+                setLoading(false);
                 toast.error(e.message)
             })
     }
+
+    const handleGoogleLogin = () => {
+        signInWithGoogle(googleProvider)
+            .then(() => {
+                setLoading(false)
+                navigate(from, { replace: true });
+                toast.success('Successfully logged in!');
+            })
+            .catch(error => {
+                setLoading(false);
+                toast.error(error.message)
+            })
+    }
+
     return (
         <div className="container px-3 py-5 p-sm-5 row mx-auto">
             <div className='col-lg-6 col-md-12 mb-5'>
@@ -61,6 +82,7 @@ const Login = () => {
                     <input value='Log in' className='button' type="submit" />
                     <p className='text-xs text-center mt-4'>Already have account? <Link to='/register' className=''>Register</Link></p>
                 </form>
+                <button onClick={handleGoogleLogin} className='button d-flex align-items-center justify-content-center'><ImGoogle className='me-2' /> <span>Google</span></button>
             </div>
         </div>
     );

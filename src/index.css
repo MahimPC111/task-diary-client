@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 body {
-  margin: 0;
+  margin: 0 auto !important;
+  max-width: 1400px;
   font-family: 'Roboto Slab', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,12 +36,13 @@ body {
   color: #2554C2;
   background: #80A4F1;
   text-align: center;
-  padding: 5px 0;
-  margin-top: 20px;
+  padding: 4px 0;
+  margin-top: 15px;
   width: 100%;
   border: 1px solid #2554C2;
   border-radius: 10px;
   font-weight: 500;
+  transition: all ease 0.8s;
 }
 
 .button:hover {
@@ -81,6 +83,7 @@ body {
   padding: 6px;
   border-radius: 8px;
   font-size: 35px;
+  transition: all ease 1s;
 }
 
 .task-button:hover {
@@ -108,6 +111,11 @@ body {
   .span {
     font-size: 30px;
   }
+
+  .task-title {
+    font-weight: 500;
+  }
+
 }
 
 @media screen and (max-width: 576px) {
@@ -117,5 +125,26 @@ body {
 
   .span {
     font-size: 20px;
+  }
+
+  .task-body {
+    padding: 15px;
+  }
+
+  .task-title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .task-details {
+    height: fit-content;
+  }
+
+  .task-button {
+    background: #2554C2;
+    color: #80A4F1;
+    padding: 6px;
+    border-radius: 8px;
+    font-size: 30px;
   }
 }

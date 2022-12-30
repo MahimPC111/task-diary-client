@@ -5,7 +5,6 @@ import { toast } from 'react-hot-toast';
 const AddTask = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-
     const handleAddTask = data => {
         const imgHostingKey = process.env.REACT_APP_imgbb_key;
 
@@ -46,21 +45,20 @@ const AddTask = () => {
     }
     return (
         <div className='container px-0 pt-5 row mx-auto'>
+            <h2 className='mb-4 text-center'>Add your task here</h2>
             <form onSubmit={handleSubmit(handleAddTask)} className="form-bg w-75 w-sm-50 mx-auto border border-info rounded-3 p-3 p-sm-4 p-md-5">
-                <h2 className="text-center form-title">Add Task</h2>
-
                 <div className="w-100 mt-3">
                     <input {...register("title", { required: "Task title is required" })} type="text" className="w-100 text-input" placeholder='Task title' />
                     {errors.title && <p className='text-danger fw-semibold'>{errors.title?.message}</p>}
                 </div>
 
                 <div className="w-100 mt-3">
-                    <textarea {...register("details", { required: "Task details is required" })} type="text" className="w-100 text-input" />
+                    <textarea {...register("details", { required: "Task details is required" })} type="text" className="w-100 text-input" placeholder='Task details' />
                     {errors.details && <p className='text-danger fw-semibold'>{errors.details?.message}</p>}
                 </div>
 
                 <div className="w-100 mt-3">
-                    <input {...register("image", { required: "Image is required" })} type="file" className="w-100 text-input" required />
+                    <input {...register("image", { required: "Image is required" })} type="file" className="w-100 text-input bg-white" required />
                     {errors.image && <p className='text-danger fw-semibold'>{errors.image?.message}</p>}
                 </div>
 

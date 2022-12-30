@@ -26,10 +26,15 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-lg-5 me-auto">
-                        <NavLink className={`header-link ${({ isActive }) => isActive ? 'active' : undefined}`} to='/'>Home</NavLink>
-                        <NavLink className='header-link' to='/addTask'>Add Task</NavLink>
-                        <NavLink className='header-link' to='/myTasks'>My Tasks</NavLink>
-                        <NavLink className='header-link' to='/completedTasks'>Completed Tasks</NavLink>
+                        {
+                            user?.uid &&
+                            <>
+                                <NavLink className={`header-link ${({ isActive }) => isActive ? 'active' : undefined}`} to='/'>Home</NavLink>
+                                <NavLink className='header-link' to='/addTask'>Add Task</NavLink>
+                                <NavLink className='header-link' to='/myTasks'>My Tasks</NavLink>
+                                <NavLink className='header-link' to='/completedTasks'>Completed Tasks</NavLink>
+                            </>
+                        }
                     </Nav>
                     <Nav>
                         {

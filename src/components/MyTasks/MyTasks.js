@@ -51,15 +51,17 @@ const MyTasks = () => {
     }
 
     return (
-        <div className='row p-5'>
-            {
-                tasks && tasks.map(task => <MyTask
-                    key={task._id}
-                    task={task}
-                    handleDelete={handleDelete}
-                    handleCompleted={handleCompleted}
-                ></MyTask>)
-            }
+        <div className='container'>
+            <div className='row p-5'>
+                {
+                    tasks && tasks.map(task => <MyTask
+                        key={task._id}
+                        task={task}
+                        handleDelete={handleDelete}
+                        handleCompleted={handleCompleted}
+                    ></MyTask>)
+                }
+            </div>
         </div>
     );
 };
