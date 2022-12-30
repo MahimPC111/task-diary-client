@@ -9,6 +9,16 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [theme, setTheme] = useState(false)
+
+    useEffect(() => {
+        setTheme(JSON.parse(window.localStorage.getItem('theme') || 'false'))
+    }, [])
+
+    const handleThemeChange = () => {
+        setTheme(!theme);
+        window.localStorage.setItem('theme', JSON.stringify(!theme));
+    }
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -48,7 +58,9 @@ const AuthProvider = ({ children }) => {
         logInUser,
         signInWithGoogle,
         logOutUser,
-        setLoading
+        setLoading,
+        theme,
+        handleThemeChange
     }
     return (
         <AuthContext.Provider value={authInfo}>
