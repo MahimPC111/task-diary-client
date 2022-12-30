@@ -64,12 +64,12 @@ const AddTask = () => {
             <form onSubmit={handleSubmit(handleAddTask)} className="form-bg w-75 w-sm-50 mx-auto border border-info rounded-3 p-3 p-sm-4 p-md-5">
                 <div className="w-100 mt-3">
                     <input {...register("title", { required: "Task title is required" })} type="text" className="w-100 text-input" placeholder='Task title' />
-                    {errors.title && <p className='text-danger fw-semibold'>{errors.title?.message}</p>}
+                    {errors.title && <p className='fw-semibold'>{errors.title?.message}</p>}
                 </div>
 
                 <div className="w-100 mt-3">
                     <textarea {...register("details", { required: "Task details is required" })} type="text" className="w-100 text-input" placeholder='Task details' />
-                    {errors.details && <p className='text-danger fw-semibold'>{errors.details?.message}</p>}
+                    {errors.details && <p className='fw-semibold'>{errors.details?.message}</p>}
                 </div>
 
                 <div className="w-100 mt-3">

@@ -62,7 +62,7 @@ const Login = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <input {...register("email", { required: "Email Address is required" })} type="email" className="w-100 text-input" placeholder='Enter your email' />
-                        {errors.email && <p className='text-danger fw-semibold'>{errors.email?.message}</p>}
+                        {errors.email && <p className='fw-semibold'>{errors.email?.message}</p>}
                     </div>
 
                     <div className="w-100">
@@ -76,7 +76,7 @@ const Login = () => {
                                 pattern: { value: /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/, message: 'Password must be strong' }
                             }
                         )} type="password" className="w-100 text-input" placeholder='Enter your password' />
-                        {errors.password && <p className='text-danger fw-semibold'>{errors.password?.message}</p>}
+                        {errors.password && <p className='fw-semibold'>{errors.password?.message}</p>}
                     </div>
 
                     <input value='Log in' className='button' type="submit" />
