@@ -1,6 +1,5 @@
 .task-details-card {
     width: 100%;
-    background: #3C6EE0;
     overflow: hidden;
     padding: 20px;
 }
@@ -17,7 +16,8 @@
 }
 
 .task-details-details {
-    height: fit-content;
+    /* max-height: ; */
+    overflow-y: scroll;
     margin: 10px 0;
     font-weight: 500;
 }

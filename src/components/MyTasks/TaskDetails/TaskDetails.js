@@ -10,7 +10,9 @@ const TaskDetails = () => {
             <div className='d-flex justify-content-between'>
                 <img className='task-details-image img-fluid w-50' src={task_image} alt='' />
                 <div className='w-50 p-2'>
-                    <div className='task-details-title'>{title}</div>
+                    <div className='task-details-title'>
+                        <p>{title}</p>
+                    </div>
                     <div className='task-details-details'>{details}</div>
                 </div>
             </div>

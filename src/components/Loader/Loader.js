@@ -3,7 +3,7 @@ import { ScaleLoader } from 'react-spinners';
 
 const Loader = () => {
     return (
-        <div className='text-center my-10 h-screen'>
+        <div className='text-center mt-5 pt-5'>
             <ScaleLoader
                 color="#414141"
                 width={5}

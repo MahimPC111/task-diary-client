@@ -52,7 +52,7 @@ const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
                     <Link to={`/myComment/${_id}`}><FaCommentAlt title='View comments' className='task-button' /></Link>
                 </div>
                 <div>
-                    <form onSubmit={handleSubmit} className='mx-auto mt-2'>
+                    <form onSubmit={handleSubmit} className='mx-auto mt-4'>
                         <textarea name='body' className="w-100 text-input" placeholder='Drop your comment'></textarea>
                         <button className='button'>Post</button>
                     </form>

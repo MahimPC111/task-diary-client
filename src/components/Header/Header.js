@@ -5,6 +5,7 @@ import { toast } from 'react-hot-toast';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import './Header.css'
+import img from '../../assets/navbar-icon.png'
 
 
 const Header = () => {
@@ -22,7 +23,13 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container className='d-flex align-items-center text-center'>
-                <Navbar.Brand className='fs-2 text-warning'>React-Bootstrap</Navbar.Brand>
+
+                <img src={img} style={{ width: '60px' }} alt='' />
+
+                <Navbar.Brand className='fs-1 fw-semibold'>
+                    <span style={{ color: '#FF9933' }}>Task</span>
+                    <span style={{ color: '#6699FF' }}>Diary</span>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-lg-5 me-auto">
@@ -33,6 +40,7 @@ const Header = () => {
                                 <NavLink className='header-link' to='/addTask'>Add Task</NavLink>
                                 <NavLink className='header-link' to='/myTasks'>My Tasks</NavLink>
                                 <NavLink className='header-link' to='/completedTasks'>Completed Tasks</NavLink>
+                                <NavLink className='header-link' to='/media'>Media</NavLink>
                             </>
                         }
                     </Nav>

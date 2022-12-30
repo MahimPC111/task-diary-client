@@ -82,7 +82,7 @@ const Login = () => {
                     <input value='Log in' className='button' type="submit" />
                     <p className='text-xs text-center mt-4'>Already have account? <Link to='/register' className=''>Register</Link></p>
                 </form>
-                <button onClick={handleGoogleLogin} className='button d-flex align-items-center justify-content-center'><ImGoogle className='me-2' /> <span>Google</span></button>
+                <button onClick={handleGoogleLogin} className='button d-flex align-items-center justify-content-center'><ImGoogle className='me-1' /> <span>Google</span></button>
             </div>
         </div>
     );

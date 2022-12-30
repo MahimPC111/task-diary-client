@@ -9,15 +9,17 @@ body {
 }
 
 .form-bg {
-  background-color: lightcyan;
+  background-color: #8b9be9;
+  border: 0 !important;
+  transition: all ease 0.8s;
 }
 
 .form-bg:hover {
-  background-color: lightblue;
+  background-color: #aeb6e0;
 }
 
 .form-title {
-  color: #2554C2;
+  color: #574b90;
 }
 
 .section-title {
@@ -33,22 +35,21 @@ body {
 }
 
 .button {
-  color: #2554C2;
-  background: #80A4F1;
+  color: rgba(32, 32, 32, 0.877);
+  background: linear-gradient(to right, #4568dc, #b06ab3);
   text-align: center;
   padding: 4px 0;
   margin-top: 15px;
   width: 100%;
-  border: 1px solid #2554C2;
+  border: 1px solid #753a88;
   border-radius: 10px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 18px;
   transition: all ease 0.8s;
 }
 
 .button:hover {
   cursor: pointer;
-  color: #80A4F1;
-  background: #2554C2;
 }
 
 .task-card {
@@ -95,11 +96,23 @@ body {
 .text-input {
   border-radius: 10px;
   padding: 5px 10px;
-  border: 2px solid #3C6EE0;
+  border: 2px solid #40407a;
 }
 
 .text-input:hover {
-  border: 2px solid #2554C2;
+  border: 2px solid #7777a5;
+}
+
+.file-label {
+  height: 40px;
+  width: 100%;
+  background: linear-gradient(to right, #de6262, #ffb88c);
+  border-radius: 10px;
+  border: 1px solid #de6262;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 

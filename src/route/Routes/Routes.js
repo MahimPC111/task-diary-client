@@ -11,6 +11,7 @@ import MyTasks from '../../components/MyTasks/MyTasks';
 import Register from '../../components/Register/Register';
 import TaskDetails from '../../components/MyTasks/TaskDetails/TaskDetails';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
+import Media from '../../components/Media/Media';
 
 
 export const router = createBrowserRouter([
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
                 path: '/myComment/:id',
                 loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
                 element: <PrivateRoutes><Comments></Comments></PrivateRoutes>
+            },
+            {
+                path: '/media',
+                element: <PrivateRoutes><Media></Media></PrivateRoutes>
             },
             {
                 path: '/login',

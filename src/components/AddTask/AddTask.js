@@ -1,9 +1,19 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { MdOutlineAddAPhoto } from 'react-icons/md';
+import { AuthContext } from '../../context/AuthProvider';
+import Loader from '../Loader/Loader';
 
 const AddTask = () => {
+    const { loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+
+    if (loading) {
+        <Loader></Loader>
+    }
 
     const handleAddTask = data => {
         const imgHostingKey = process.env.REACT_APP_imgbb_key;
@@ -11,7 +21,7 @@ const AddTask = () => {
         const title = data.title;
         const details = data.details;
         const image = data.image[0];
-
+        setLoading(true);
         const formData = new FormData();
         formData.append('image', image);
         fetch(`https://api.imgbb.com/1/upload?key=${imgHostingKey}`, {
@@ -38,13 +48,14 @@ const AddTask = () => {
                     })
                         .then(res => res.json())
                         .then(() => {
+                            setLoading(false)
                             toast.success('Task added successfully!')
                         })
                 }
             })
     }
     return (
-        <div className='container px-0 pt-5 row mx-auto'>
+        <div className='container px-0 pt-5 pb-5 row mx-auto'>
             <h2 className='mb-4 text-center'>Add your task here</h2>
             <form onSubmit={handleSubmit(handleAddTask)} className="form-bg w-75 w-sm-50 mx-auto border border-info rounded-3 p-3 p-sm-4 p-md-5">
                 <div className="w-100 mt-3">
@@ -58,8 +69,8 @@ const AddTask = () => {
                 </div>
 
                 <div className="w-100 mt-3">
-                    <input {...register("image", { required: "Image is required" })} type="file" className="w-100 text-input bg-white" required />
-                    {errors.image && <p className='text-danger fw-semibold'>{errors.image?.message}</p>}
+                    <input {...register("image", { required: "Image is required" })} type="file" id='file' accept='image/' className="d-none w-100 text-input bg-white" required />
+                    <label className='file-label' for='file'><MdOutlineAddAPhoto className='me-1' />Upload Photo</label>
                 </div>
 
                 <input value='ADD TASK' className='button' type="submit" />
