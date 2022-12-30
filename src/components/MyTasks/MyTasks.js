@@ -11,7 +11,7 @@ import MyTask from './MyTask';
 const MyTasks = () => {
     useTitle('My Tasks')
     const { user, loading, setLoading } = useContext(AuthContext);
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -65,16 +65,21 @@ const MyTasks = () => {
 
     return (
         <div className='container'>
-            <div className='row p-5'>
-                {
-                    tasks && tasks.map(task => <MyTask
-                        key={task._id}
-                        task={task}
-                        handleDelete={handleDelete}
-                        handleCompleted={handleCompleted}
-                    ></MyTask>)
-                }
-            </div>
+            {
+                tasks ?
+                    <div className='row p-5'>
+                        {
+                            tasks && tasks.map(task => <MyTask
+                                key={task._id}
+                                task={task}
+                                handleDelete={handleDelete}
+                                handleCompleted={handleCompleted}
+                            ></MyTask>)
+                        }
+                    </div>
+                    :
+                    <Loader />
+            }
         </div>
     );
 };

@@ -12,7 +12,7 @@ import CompletedTask from './CompletedTask';
 const CompletedTasks = () => {
     useTitle('Completed Tasks')
     const { user, loading, setLoading } = useContext(AuthContext);
-    const [completedTasks, setCompletedTasks] = useState([]);
+    const [completedTasks, setCompletedTasks] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -66,16 +66,21 @@ const CompletedTasks = () => {
 
     return (
         <div className='container'>
-            <div className='row p-5'>
-                {
-                    completedTasks && completedTasks.map(task => <CompletedTask
-                        key={task._id}
-                        task={task}
-                        handleDelete={handleDelete}
-                        handleNotCompleted={handleNotCompleted}
-                    ></CompletedTask>)
-                }
-            </div>
+            {
+                completedTasks ?
+                    <div className='row p-5'>
+                        {
+                            completedTasks && completedTasks.map(task => <CompletedTask
+                                key={task._id}
+                                task={task}
+                                handleDelete={handleDelete}
+                                handleNotCompleted={handleNotCompleted}
+                            ></CompletedTask>)
+                        }
+                    </div>
+                    :
+                    <Loader />
+            }
         </div>
     );
 };
