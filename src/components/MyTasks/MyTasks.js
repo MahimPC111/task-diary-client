@@ -4,10 +4,13 @@ import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import { useTitle } from '../../hooks/useTitle';
+import Loader from '../Loader/Loader';
 import MyTask from './MyTask';
 
 const MyTasks = () => {
-    const { user } = useContext(AuthContext);
+    useTitle('My Tasks')
+    const { user, loading, setLoading } = useContext(AuthContext);
     const [tasks, setTasks] = useState([]);
     const navigate = useNavigate();
 
@@ -19,16 +22,19 @@ const MyTasks = () => {
             })
     }, [user?.email])
 
+
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure to delete this task?');
 
         if (proceed) {
+            setLoading(true);
             fetch(`https://task-diary-server.vercel.app/tasks/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
+                        setLoading(false);
                         toast.success('Task deleted successfully')
                     }
                     const remainingTasks = tasks.filter(task => task._id !== id);
@@ -51,6 +57,10 @@ const MyTasks = () => {
                     navigate('/completedTasks');
                 }
             })
+    }
+
+    if (loading) {
+        return <Loader></Loader>
     }
 
     return (

@@ -2,8 +2,10 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { useTitle } from '../../../hooks/useTitle';
 
 const Comments = () => {
+    useTitle('Comments');
     const { _id } = useLoaderData();
     const [comments, setComments] = useState([]);
     useEffect(() => {

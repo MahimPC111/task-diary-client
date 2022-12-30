@@ -3,8 +3,10 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import { useTitle } from '../../hooks/useTitle';
 
 const Media = () => {
+    useTitle('Media');
     const { user } = useContext(AuthContext);
     const [allTasks, setAllTasks] = useState([]);
     useEffect(() => {

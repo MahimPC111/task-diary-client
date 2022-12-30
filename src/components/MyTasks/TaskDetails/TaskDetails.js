@@ -1,7 +1,9 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { useTitle } from '../../../hooks/useTitle';
 
 const TaskDetails = () => {
+    useTitle('Task Details')
     const data = useLoaderData();
     const { title, published_date, details } = data;
     return (

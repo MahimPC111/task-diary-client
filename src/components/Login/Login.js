@@ -8,8 +8,10 @@ import Loader from '../Loader/Loader';
 import img from '../../assets/authentication-image.jpg'
 import { ImGoogle } from 'react-icons/im';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { useTitle } from '../../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login');
     const { logInUser, signInWithGoogle, loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();

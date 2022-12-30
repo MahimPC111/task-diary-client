@@ -2,8 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useTitle } from '../../hooks/useTitle';
 
 const EditTask = () => {
+    useTitle('Edit Task');
     const storedTask = useLoaderData();
     const [task, setTask] = useState(storedTask);
     const navigate = useNavigate();

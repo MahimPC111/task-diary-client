@@ -5,9 +5,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import Loader from '../Loader/Loader';
 import img from '../../assets/authentication-image.jpg'
+import { useTitle } from '../../hooks/useTitle';
 
 
 const Register = () => {
+    useTitle('Register');
     const { createUser, loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
@@ -21,6 +23,7 @@ const Register = () => {
         createUser(data.email, data.password)
             .then(() => {
                 navigate('/')
+                setLoading(false)
                 toast.success('Successfully registered!')
             })
             .catch(e => {

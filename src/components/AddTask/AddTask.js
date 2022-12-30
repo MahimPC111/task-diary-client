@@ -5,12 +5,13 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { MdOutlineAddAPhoto } from 'react-icons/md';
 import { AuthContext } from '../../context/AuthProvider';
+import { useTitle } from '../../hooks/useTitle';
 import Loader from '../Loader/Loader';
 
 const AddTask = () => {
+    useTitle('Add Task')
     const { user, loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
 
     if (loading) {
         <Loader></Loader>
@@ -77,7 +78,7 @@ const AddTask = () => {
                     <label className='file-label' htmlFor='file'><MdOutlineAddAPhoto className='me-1' />Upload Photo</label>
                 </div>
 
-                <input value='ADD TASK' className='button' type="submit" />
+                <input value='ADD TASK' id='submit' className='button' type="submit" />
             </form >
         </div >
     );
