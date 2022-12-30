@@ -19,7 +19,7 @@ const EditTask = () => {
             details: details
         }
 
-        fetch(`http://localhost:5000/tasks/${task._id}`, {
+        fetch(`https://task-diary-server.vercel.app/tasks/${task._id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"

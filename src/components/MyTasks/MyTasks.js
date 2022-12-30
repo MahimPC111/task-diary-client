@@ -12,7 +12,7 @@ const MyTasks = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tasks?email=${user?.email}&status=incomplete`)
+        fetch(`https://task-diary-server.vercel.app/tasks?email=${user?.email}&status=incomplete`)
             .then(res => res.json())
             .then(data => {
                 setTasks(data)
@@ -23,7 +23,7 @@ const MyTasks = () => {
         const proceed = window.confirm('Are you sure to delete this task?');
 
         if (proceed) {
-            fetch(`http://localhost:5000/tasks/${id}`, {
+            fetch(`https://task-diary-server.vercel.app/tasks/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -38,7 +38,7 @@ const MyTasks = () => {
     }
 
     const handleCompleted = id => {
-        fetch(`http://localhost:5000/completedTasks/${id}`, {
+        fetch(`https://task-diary-server.vercel.app/completedTasks/${id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"

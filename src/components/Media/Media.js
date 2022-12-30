@@ -8,7 +8,7 @@ const Media = () => {
     const { user } = useContext(AuthContext);
     const [allTasks, setAllTasks] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/allTasks?email=${user?.email}`)
+        fetch(`https://task-diary-server.vercel.app/allTasks?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setAllTasks(data))
     }, [user?.email])

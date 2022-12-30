@@ -7,7 +7,7 @@ const Comments = () => {
     const { _id } = useLoaderData();
     const [comments, setComments] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/allComments?taskId=${_id}`)
+        fetch(`https://task-diary-server.vercel.app/allComments?taskId=${_id}`)
             .then(res => res.json())
             .then(data => {
                 setComments(data)

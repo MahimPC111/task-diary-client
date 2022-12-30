@@ -18,7 +18,7 @@ const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
             commentBody: body,
         }
 
-        fetch('http://localhost:5000/comments', {
+        fetch('https://task-diary-server.vercel.app/comments', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

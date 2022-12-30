@@ -43,7 +43,7 @@ const AddTask = () => {
                         task_image: imgData.data.url,
                         status: 'incomplete',
                     }
-                    fetch('http://localhost:5000/tasks', {
+                    fetch('https://task-diary-server.vercel.app/tasks', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

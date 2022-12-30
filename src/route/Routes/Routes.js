@@ -33,12 +33,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myTask/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
+                loader: ({ params }) => fetch(`https://task-diary-server.vercel.app/tasks/${params.id}`),
                 element: <PrivateRoutes><TaskDetails></TaskDetails></PrivateRoutes>
             },
             {
                 path: '/editTask/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
+                loader: ({ params }) => fetch(`https://task-diary-server.vercel.app/tasks/${params.id}`),
                 element: <PrivateRoutes><EditTask></EditTask></PrivateRoutes>
             },
             {
@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myComment/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
+                loader: ({ params }) => fetch(`https://task-diary-server.vercel.app/tasks/${params.id}`),
                 element: <PrivateRoutes><Comments></Comments></PrivateRoutes>
             },
             {
