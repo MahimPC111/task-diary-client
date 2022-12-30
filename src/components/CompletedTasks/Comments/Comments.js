@@ -5,7 +5,6 @@ import { useLoaderData } from 'react-router-dom';
 
 const Comments = () => {
     const { _id } = useLoaderData();
-    console.log(_id)
     const [comments, setComments] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/allComments?taskId=${_id}`)

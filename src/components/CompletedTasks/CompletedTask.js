@@ -13,8 +13,6 @@ const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
         const taskId = _id;
         const body = event.target.body.value;
 
-        console.log(body)
-
         const comment = {
             taskId,
             commentBody: body,

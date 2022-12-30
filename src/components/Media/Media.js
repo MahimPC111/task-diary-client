@@ -1,14 +1,18 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Media = () => {
+    const { user } = useContext(AuthContext);
     const [allTasks, setAllTasks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tasks')
+        fetch(`http://localhost:5000/allTasks?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setAllTasks(data))
-    }, [])
+    }, [user?.email])
+
     return (
         <div className='w-50 mx-auto my-5'>
             {
@@ -21,8 +25,9 @@ const Media = () => {
                                 </div>
                                 <div className='w-75 ps-3 d-flex align-items-center'>
                                     <div>
-                                        <h5>{task.title}</h5>
-                                        <p>{task.status}</p>
+                                        <h3 className='m-0 fs-3 fw-semibold'>{task.title}</h3>
+                                        <p className='m-0 fw-semibold'>{task.status}</p>
+                                        <p className='m-0 fw-semibold'>{task.published_date}</p>
                                     </div>
                                 </div>
                             </div>

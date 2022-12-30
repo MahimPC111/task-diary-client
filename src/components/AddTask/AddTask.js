@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import React from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
@@ -7,7 +8,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import Loader from '../Loader/Loader';
 
 const AddTask = () => {
-    const { loading, setLoading } = useContext(AuthContext)
+    const { user, loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
 
@@ -17,10 +18,12 @@ const AddTask = () => {
 
     const handleAddTask = data => {
         const imgHostingKey = process.env.REACT_APP_imgbb_key;
-
         const title = data.title;
         const details = data.details;
         const image = data.image[0];
+        const email = user.email;
+        const date = format(new Date(), 'PPP');
+
         setLoading(true);
         const formData = new FormData();
         formData.append('image', image);
@@ -33,12 +36,13 @@ const AddTask = () => {
                 if (imgData.success) {
                     reset();
                     const newTask = {
+                        published_date: date,
+                        email,
                         title,
                         details,
                         task_image: imgData.data.url,
                         status: 'incomplete',
                     }
-                    console.log(newTask)
                     fetch('http://localhost:5000/tasks', {
                         method: 'POST',
                         headers: {
@@ -70,12 +74,12 @@ const AddTask = () => {
 
                 <div className="w-100 mt-3">
                     <input {...register("image", { required: "Image is required" })} type="file" id='file' accept='image/' className="d-none w-100 text-input bg-white" required />
-                    <label className='file-label' for='file'><MdOutlineAddAPhoto className='me-1' />Upload Photo</label>
+                    <label className='file-label' htmlFor='file'><MdOutlineAddAPhoto className='me-1' />Upload Photo</label>
                 </div>
 
                 <input value='ADD TASK' className='button' type="submit" />
-            </form>
-        </div>
+            </form >
+        </div >
     );
 };
 

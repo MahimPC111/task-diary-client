@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 import MyTask from './MyTask';
 
 const MyTasks = () => {
+    const { user } = useContext(AuthContext);
     const [tasks, setTasks] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:5000/tasks?status=incomplete')
+        fetch(`http://localhost:5000/tasks?email=${user?.email}&status=incomplete`)
             .then(res => res.json())
             .then(data => {
                 setTasks(data)
             })
-    }, [])
+    }, [user?.email])
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure to delete this task?');

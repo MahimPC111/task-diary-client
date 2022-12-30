@@ -1,21 +1,14 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import './TaskDetails.css'
 
 const TaskDetails = () => {
     const data = useLoaderData();
-    const { title, details, task_image } = data;
+    const { title, published_date, details } = data;
     return (
-        <div className='task-details-card p-5 mt-5'>
-            <div className='d-flex justify-content-between'>
-                <img className='task-details-image img-fluid w-50' src={task_image} alt='' />
-                <div className='w-50 p-2'>
-                    <div className='task-details-title'>
-                        <p>{title}</p>
-                    </div>
-                    <div className='task-details-details'>{details}</div>
-                </div>
-            </div>
+        <div className='p-3 p-md-4 p-lg-4 mt-4 mt-lg-5 w-75 mx-auto bg-warning rounded-3 border border-2 border-success'>
+            <h2 className='text-center'>{title}</h2>
+            <p className='fw-semibold'>Published date: {published_date}</p>
+            <p>{details}</p>
         </div>
     );
 };
