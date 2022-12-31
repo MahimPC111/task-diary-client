@@ -21,7 +21,14 @@ const Header = () => {
             })
             .catch(e => toast.error(e.message))
     }
+    const bg1 = {
+        background: '#37446b'
+    }
+    const bg2 = {
+        background: '#6579b8'
+    }
     const navLinkColor = theme ? 'header-link' : 'header-link2';
+    const bgTheme = theme ? bg1 : bg2;
 
     return (
         <Navbar collapseOnSelect expand="lg" bg={theme ? 'dark' : 'light'} variant="dark">
@@ -33,13 +40,13 @@ const Header = () => {
                     <span style={{ color: '#FF9933' }}>Task</span>
                     <span style={{ color: '#6699FF' }}>Diary</span>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Toggle style={bgTheme} aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-lg-5 me-auto">
+                        <NavLink className={`${navLinkColor} ${({ isActive }) => isActive ? 'active' : undefined}`} to='/'>Home</NavLink>
                         {
                             user?.uid &&
                             <>
-                                <NavLink className={`header-link ${({ isActive }) => isActive ? 'active' : undefined}`} to='/'>Home</NavLink>
                                 <NavLink className={navLinkColor} to='/addTask'>Add Task</NavLink>
                                 <NavLink className={navLinkColor} to='/myTasks'>My Tasks</NavLink>
                                 <NavLink className={navLinkColor} to='/completedTasks'>Completed Tasks</NavLink>
@@ -59,7 +66,7 @@ const Header = () => {
 
                         }
                         <button className='button-mode' onClick={handleThemeChange}>
-                            {theme ? <BsFillSunFill className='button-sun' /> : < FaMoon className='button-moon' />}
+                            {theme ? <BsFillSunFill /> : < FaMoon />}
                         </button>
                     </Nav>
                 </Navbar.Collapse>

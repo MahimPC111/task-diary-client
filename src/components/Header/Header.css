@@ -27,7 +27,7 @@
 .button-logout {
     border-radius: 10px;
     background: transparent;
-    color: white;
+    color: #99CCFF;
     border: 1px solid #99CCFF;
     font-weight: 500;
     transition: all ease 0.5s;
@@ -51,7 +51,6 @@
     background: #99CCFF;
     color: rgba(39, 39, 39, 0.911);
 }
-
 
 @media screen and (min-width: 576px) and (max-width: 992px) {
     .active {

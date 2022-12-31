@@ -3,23 +3,6 @@
 body {
   margin: 0 auto !important;
   max-width: 1400px;
-  font-family: 'Roboto Slab', serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.form-bg {
-  background-color: #8b9be9;
-  border: 0 !important;
-  transition: all ease 0.8s;
-}
-
-.form-bg:hover {
-  background-color: #aeb6e0;
-}
-
-.form-title {
-  color: #574b90;
 }
 
 .section-title {
@@ -32,6 +15,24 @@ body {
 
 .span {
   font-size: 40px;
+}
+
+.form-bg {
+  background-color: #8b9be9;
+  transition: all ease 0.8s;
+}
+
+.form-bg2 {
+  background-color: #19223C;
+  transition: all ease 0.8s;
+}
+
+/* .form-bg:hover {
+  background-color: #aeb6e0;
+} */
+
+.form-title {
+  color: #574b90;
 }
 
 .button {
@@ -50,11 +51,26 @@ body {
 
 .button:hover {
   cursor: pointer;
+  color: white;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px
 }
 
 .task-card {
-  max-width: 320px !important;
-  background: #3C6EE0;
+  background: #F7A281;
+  width: 320px;
+  box-shadow: 0 0 4px rgb(51, 51, 51);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.task-card2 {
+  background: #19223C;
+  width: 320px;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -79,18 +95,37 @@ body {
 }
 
 .task-button {
-  background: #2554C2;
-  color: #80A4F1;
+  background: transparent;
+  color: rgb(73, 72, 72);
+  border: 1px solid rgb(73, 72, 72);
   padding: 6px;
   border-radius: 8px;
   font-size: 35px;
   transition: all ease 1s;
 }
 
+
 .task-button:hover {
   cursor: pointer;
-  color: #2554C2;
-  background: #80A4F1;
+  background: rgb(73, 72, 72);
+  color: #f17f7f;
+}
+
+.task-button2 {
+  background: transparent;
+  color: #99CCFF;
+  border: 1px solid #99CCFF;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 35px;
+  transition: all ease 1s;
+}
+
+
+.task-button2:hover {
+  cursor: pointer;
+  background: #99CCFF;
+  color: #19223C;
 }
 
 .text-input {
@@ -113,6 +148,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all ease 0.8s;
+}
+
+.file-label:hover {
+  color: white;
 }
 
 
@@ -129,6 +169,18 @@ body {
     font-weight: 500;
   }
 
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px
+  }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 777px) {
+  .card-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -138,6 +190,11 @@ body {
 
   .span {
     font-size: 20px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px
   }
 
   .task-body {
@@ -159,5 +216,11 @@ body {
     padding: 6px;
     border-radius: 8px;
     font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .task-card {
+    width: 230px;
   }
 }

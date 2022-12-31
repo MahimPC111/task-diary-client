@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.bgLight {
+  background: white;
+  transition: all ease 0.8s;
+}
+
+.bgDark {
+  background: #010313;
+  transition: all ease 0.8s;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,6 +42,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -1,10 +1,25 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import img from '../../assets/home-image.jpg'
 import { useTitle } from '../../hooks/useTitle';
+import Loader from '../Loader/Loader';
 
 const Home = () => {
     useTitle('Home')
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000)
+    }, [])
+
+    if (loading) {
+        return <Loader></Loader>
+    }
+
     return (
         <div className='w-100 row py-5 mx-0'>
             <div className='col-lg-6 col-md-12 mb-5 px-0 ps-5 d-flex align-items-center'>

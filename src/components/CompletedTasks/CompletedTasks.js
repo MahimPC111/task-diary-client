@@ -65,10 +65,10 @@ const CompletedTasks = () => {
 
 
     return (
-        <div className='container'>
+        <div className='container min-vh-100'>
             {
                 completedTasks ?
-                    <div className='row p-5'>
+                    <div className='card-grid py-5'>
                         {
                             completedTasks && completedTasks.map(task => <CompletedTask
                                 key={task._id}

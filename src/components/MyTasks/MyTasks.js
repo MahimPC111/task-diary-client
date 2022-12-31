@@ -64,10 +64,10 @@ const MyTasks = () => {
     }
 
     return (
-        <div className='container'>
+        <div className='container min-vh-100'>
             {
                 tasks ?
-                    <div className='row p-5'>
+                    <div className='card-grid py-5'>
                         {
                             tasks && tasks.map(task => <MyTask
                                 key={task._id}

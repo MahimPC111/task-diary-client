@@ -4,9 +4,14 @@ import { BsFileEarmarkExcelFill } from 'react-icons/bs';
 import { FaCommentAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider';
 
 const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
     const { _id, title, details } = task;
+    const { theme } = useContext(AuthContext)
+
+    const bgTheme = theme ? 'task-card2' : 'task-card';
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -33,8 +38,8 @@ const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
     }
 
     return (
-        <div className='task-card col-lg-6 p-0 mx-auto my-3'>
-            <div className='task-body'>
+        <div className={`${bgTheme} p-0 mx-auto my-3`}>
+            <div className={`task-body ${theme ? 'text-white' : 'text-black'}`}>
                 <div className='task-title'>{title}</div>
                 <div className='task-details'>{
                     details.length > 100 ?
@@ -43,15 +48,15 @@ const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
                         details
                 }</div>
                 <div className='d-flex justify-content-around'>
-                    <FaTrash title='Delete task' onClick={() => handleDelete(_id)} className='task-button' />
+                    <FaTrash title='Delete task' onClick={() => handleDelete(_id)} className={`${theme ? 'task-button2' : 'task-button'}`} />
 
-                    <BsFileEarmarkExcelFill title='Incomplete task' onClick={() => handleNotCompleted(_id)} className='task-button' />
+                    <BsFileEarmarkExcelFill title='Incomplete task' onClick={() => handleNotCompleted(_id)} className={`${theme ? 'task-button2' : 'task-button'}`} />
 
-                    <Link to={`/myComment/${_id}`}><FaCommentAlt title='View comments' className='task-button' /></Link>
+                    <Link to={`/myComment/${_id}`}><FaCommentAlt title='View comments' className={`${theme ? 'task-button2' : 'task-button'}`} /></Link>
                 </div>
                 <div>
                     <form onSubmit={handleSubmit} className='mx-auto mt-4'>
-                        <textarea name='body' className="w-100 text-input" placeholder='Drop your comment'></textarea>
+                        <textarea name='body' className="w-100 text-input" placeholder='Drop your comment...'></textarea>
                         <button className='button'>Post</button>
                     </form>
                 </div>

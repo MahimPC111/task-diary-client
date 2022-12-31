@@ -10,8 +10,10 @@ import Loader from '../Loader/Loader';
 
 const AddTask = () => {
     useTitle('Add Task')
-    const { user, loading, setLoading } = useContext(AuthContext)
+    const { user, theme, loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+    const bgTheme = theme ? 'form-bg2' : 'form-bg';
 
     if (loading) {
         <Loader></Loader>
@@ -60,26 +62,28 @@ const AddTask = () => {
             })
     }
     return (
-        <div className='container px-0 pt-5 pb-5 row mx-auto'>
-            <h2 className='mb-4 text-center'>Add your task here</h2>
-            <form onSubmit={handleSubmit(handleAddTask)} className="form-bg w-75 w-sm-50 mx-auto border border-info rounded-3 p-3 p-sm-4 p-md-5">
-                <div className="w-100 mt-3">
-                    <input {...register("title", { required: "Task title is required" })} type="text" className="w-100 text-input" placeholder='Task title' />
-                    {errors.title && <p className='fw-semibold'>{errors.title?.message}</p>}
-                </div>
+        <div className='container px-0 pt-5 pb-5 row mx-auto min-vh-100'>
+            <div>
+                <h2 className={`mb-4 text-center ${theme ? 'text-white' : 'text-dark'}`}>Add your task here</h2>
+                <form onSubmit={handleSubmit(handleAddTask)} className={`w-75 w-sm-50 mx-auto rounded-3 p-3 p-sm-4 p-md-5 ${bgTheme}`}>
+                    <div className="w-100 mt-3">
+                        <input {...register("title", { required: "Task title is required" })} type="text" className="w-100 text-input" placeholder='Task title' />
+                        {errors.title && <p className='fw-semibold'>{errors.title?.message}</p>}
+                    </div>
 
-                <div className="w-100 mt-3">
-                    <textarea {...register("details", { required: "Task details is required" })} type="text" className="w-100 text-input" placeholder='Task details' />
-                    {errors.details && <p className='fw-semibold'>{errors.details?.message}</p>}
-                </div>
+                    <div className="w-100 mt-3">
+                        <textarea {...register("details", { required: "Task details is required" })} type="text" className="w-100 text-input" placeholder='Task details' />
+                        {errors.details && <p className='fw-semibold'>{errors.details?.message}</p>}
+                    </div>
 
-                <div className="w-100 mt-3">
-                    <input {...register("image", { required: "Image is required" })} type="file" id='file' accept='image/' className="d-none w-100 text-input bg-white" required />
-                    <label className='file-label' htmlFor='file'><MdOutlineAddAPhoto className='me-1' />Upload Photo</label>
-                </div>
+                    <div className="w-100 mt-3">
+                        <input {...register("image", { required: "Image is required" })} type="file" id='file' accept='image/' className="d-none w-100 text-input bg-white" required />
+                        <label className='file-label' htmlFor='file'><MdOutlineAddAPhoto className='me-1' />Upload Photo</label>
+                    </div>
 
-                <input value='ADD TASK' id='submit' className='button' type="submit" />
-            </form >
+                    <input value='ADD TASK' id='submit' className='button' type="submit" />
+                </form >
+            </div>
         </div >
     );
 };
