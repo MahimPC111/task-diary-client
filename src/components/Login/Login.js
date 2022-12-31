@@ -7,8 +7,10 @@ import { AuthContext } from '../../context/AuthProvider';
 import Loader from '../Loader/Loader';
 import img from '../../assets/authentication-image.jpg'
 import { BsGoogle } from 'react-icons/bs';
+import { FaRegEye } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { useTitle } from '../../hooks/useTitle';
+import { useState } from 'react';
 
 const Login = () => {
     useTitle('Login');
@@ -18,6 +20,7 @@ const Login = () => {
     const location = useLocation();
     const googleProvider = new GoogleAuthProvider();
     const from = location?.state?.from?.pathname || '/';
+    const [state, setState] = useState(false)
 
     const bgTheme = theme ? 'form-bg2' : 'form-bg';
 
@@ -52,6 +55,17 @@ const Login = () => {
             })
     }
 
+    const togglePassword = () => {
+        if (state) {
+            document.getElementById('password').setAttribute('type', 'password');
+            setState(false)
+        }
+        else {
+            document.getElementById('password').setAttribute('type', 'text');
+            setState(true)
+        }
+    }
+
     return (
         <div className='min-vh-100'>
             <div className="container px-3 py-5 p-sm-5 row mx-auto">
@@ -67,10 +81,10 @@ const Login = () => {
                                 <span className={`label-text ${theme ? 'text-white' : 'text-dark'}`}>Email</span>
                             </label>
                             <input {...register("email", { required: "Email Address is required" })} type="email" className="w-100 text-input" placeholder='Enter your email' />
-                            {errors.email && <p className='fw-semibold'>{errors.email?.message}</p>}
+                            {errors.email && <p className={theme ? 'text-white' : 'text-dark'}>{errors.email?.message}</p>}
                         </div>
 
-                        <div className="w-100">
+                        <div className="w-100 position-relative">
                             <label className="label">
                                 <span className={`label-text ${theme ? 'text-white' : 'text-dark'}`}>Password</span>
                             </label>
@@ -80,8 +94,8 @@ const Login = () => {
                                     minLength: { value: 8, message: 'Password should be at least six or more characters' },
                                     pattern: { value: /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/, message: 'Password must be strong' }
                                 }
-                            )} type="password" className="w-100 text-input" placeholder='Enter your password' />
-                            {errors.password && <p className='fw-semibold'>{errors.password?.message}</p>}
+                            )} type="password" id='password' className="w-100 text-input" placeholder='Enter your password' /><FaRegEye onClick={togglePassword} className='eye-icon' />
+                            {errors.password && <p className={theme ? 'text-white' : 'text-dark'}>{errors.password?.message}</p>}
                         </div>
 
                         <input value='Log in' className='button' type="submit" />

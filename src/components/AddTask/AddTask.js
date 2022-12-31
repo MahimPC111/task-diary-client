@@ -65,7 +65,7 @@ const AddTask = () => {
         <div className='container px-0 pt-5 pb-5 row mx-auto min-vh-100'>
             <div>
                 <h2 className={`mb-4 text-center ${theme ? 'text-white' : 'text-dark'}`}>Add your task here</h2>
-                <form onSubmit={handleSubmit(handleAddTask)} className={`w-75 w-sm-50 mx-auto rounded-3 p-3 p-sm-4 p-md-5 ${bgTheme}`}>
+                <form onSubmit={handleSubmit(handleAddTask)} className={`w-75 w-sm-50 mx-auto rounded-3 p-4 p-md-5 ${bgTheme}`}>
                     <div className="w-100 mt-3">
                         <input {...register("title", { required: "Task title is required" })} type="text" className="w-100 text-input" placeholder='Task title' />
                         {errors.title && <p className='fw-semibold'>{errors.title?.message}</p>}

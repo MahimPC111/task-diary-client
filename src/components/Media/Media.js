@@ -20,16 +20,16 @@ const Media = () => {
         <div className='min-vh-100'>
             {
                 allTasks ?
-                    <div className='w-50 mx-auto py-5'>
+                    <div className='py-5'>
                         {
                             allTasks.map(task => {
                                 return (
                                     <div key={task._id}>
-                                        <div className='border border-1 rounded-2 my-3 d-flex' style={{ height: '200px', overflow: 'hidden' }}>
-                                            <div className='w-25'>
-                                                <img className='img-fluid w-100' style={{ height: '200px', }} src={task.task_image} alt="" />
+                                        <div className='border border-1 rounded-2 my-3 media-card'>
+                                            <div className='media-card-image'>
+                                                <img className='img-fluid' src={task.task_image} alt="" />
                                             </div>
-                                            <div className={`w-75 ps-3 d-flex align-items-center ${theme ? 'text-white' : 'text-dark'}`}>
+                                            <div className={`media-card-details ${theme ? 'text-white' : 'text-dark'}`}>
                                                 <div>
                                                     <h3 className='m-0 fs-3 fw-semibold'>{task.title}</h3>
                                                     <p className='m-0 fw-semibold'>{task.status}</p>

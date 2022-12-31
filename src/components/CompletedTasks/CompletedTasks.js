@@ -54,6 +54,7 @@ const CompletedTasks = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
+                    toast.success('Task counted as incomplete');
                     navigate('/myTasks');
                 }
             })
