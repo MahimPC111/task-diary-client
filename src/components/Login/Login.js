@@ -11,6 +11,7 @@ import { FaRegEye } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { useTitle } from '../../hooks/useTitle';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const Login = () => {
     useTitle('Login');
@@ -23,6 +24,18 @@ const Login = () => {
     const [state, setState] = useState(false)
 
     const bgTheme = theme ? 'form-bg2' : 'form-bg';
+
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000)
+    }, [setLoading])
+
+    if (loading) {
+        return <Loader></Loader>
+    }
+
 
     if (loading) {
         return <Loader></Loader>
@@ -69,8 +82,8 @@ const Login = () => {
     return (
         <div className='min-vh-100'>
             <div className="container px-3 py-5 p-sm-5 row mx-auto">
-                <div className='col-lg-6 col-md-12 mb-5'>
-                    <img src={img} alt='' className="img-fluid" />
+                <div className='col-lg-6 col-md-12 mb-5 mb-lg-0'>
+                    <img src={img} alt='' className="img-fluid my-lg-3" />
                 </div>
                 <div className={`col-lg-6 col-md-12 rounded-3 p-5 ${bgTheme}`}>
                     <form onSubmit={handleSubmit(handleLogIn)}>

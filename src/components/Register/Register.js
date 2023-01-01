@@ -8,6 +8,7 @@ import img from '../../assets/authentication-image.jpg'
 import { useTitle } from '../../hooks/useTitle';
 import { FaRegEye } from 'react-icons/fa';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 const Register = () => {
@@ -18,6 +19,13 @@ const Register = () => {
     const [state, setState] = useState(false)
 
     const bgTheme = theme ? 'form-bg2' : 'form-bg';
+
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000)
+    }, [setLoading])
 
     if (loading) {
         return <Loader></Loader>

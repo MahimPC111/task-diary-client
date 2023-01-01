@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { useTitle } from '../../hooks/useTitle';
 import Loader from '../Loader/Loader';
@@ -11,8 +10,7 @@ import MyTask from './MyTask';
 const MyTasks = () => {
     useTitle('My Tasks')
     const { user, loading, setLoading } = useContext(AuthContext);
-    const [tasks, setTasks] = useState(null);
-    const navigate = useNavigate();
+    const [tasks, setTasks] = useState(null);;
 
     useEffect(() => {
         fetch(`https://task-diary-server.vercel.app/tasks?email=${user?.email}&status=incomplete`)
@@ -44,6 +42,7 @@ const MyTasks = () => {
     }
 
     const handleCompleted = id => {
+        setLoading(true);
         fetch(`https://task-diary-server.vercel.app/completedTasks/${id}`, {
             method: 'PATCH',
             headers: {
@@ -55,7 +54,7 @@ const MyTasks = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     toast.success('Task counted as completed');
-                    navigate('/completedTasks');
+                    setLoading(false);
                 }
             })
     }
