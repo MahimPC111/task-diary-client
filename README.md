@@ -8,4 +8,4 @@
 * Custom CSS and React bootstrap 
 * React
 * Firebase
-* React icons, react type animation, react hot toast, react hook form and many more.
+* React icons, react type animation, react hot toast, react hook form, react photo viewer and many more.

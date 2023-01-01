@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import { useTitle } from '../../hooks/useTitle';
 import Loader from '../Loader/Loader';
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const Media = () => {
     useTitle('Media');
@@ -27,7 +29,13 @@ const Media = () => {
                                     <div key={task._id}>
                                         <div className='border border-1 rounded-2 my-3 media-card'>
                                             <div className='media-card-image'>
-                                                <img className='img-fluid' src={task.task_image} alt="" />
+                                                <PhotoProvider>
+                                                    <div>
+                                                        <PhotoView src={task.task_image}>
+                                                            <img className='img-fluid' src={task.task_image} alt="" />
+                                                        </PhotoView>
+                                                    </div>
+                                                </PhotoProvider>
                                             </div>
                                             <div className={`media-card-details ${theme ? 'text-white' : 'text-dark'}`}>
                                                 <div>

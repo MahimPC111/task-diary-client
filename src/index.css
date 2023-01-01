@@ -169,6 +169,7 @@ body {
 .media-card {
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   width: 50%;
   margin: auto;
 }
@@ -213,7 +214,7 @@ body {
   }
 
   .media-card {
-    width: 75%;
+    width: 60%;
   }
 
 }
@@ -258,8 +259,6 @@ body {
   }
 
   .task-button {
-    background: #2554C2;
-    color: #80A4F1;
     padding: 6px;
     border-radius: 8px;
     font-size: 30px;
@@ -268,7 +267,7 @@ body {
   .media-card {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 75%;
   }
 
   .media-card-image {
