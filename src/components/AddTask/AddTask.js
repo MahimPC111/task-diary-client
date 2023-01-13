@@ -7,6 +7,7 @@ import { MdOutlineAddAPhoto } from 'react-icons/md';
 import { AuthContext } from '../../context/AuthProvider';
 import { useTitle } from '../../hooks/useTitle';
 import Loader from '../Loader/Loader';
+import 'animate.css';
 
 const AddTask = () => {
     useTitle('Add Task')
@@ -62,7 +63,7 @@ const AddTask = () => {
             })
     }
     return (
-        <div className='container px-0 pt-5 pb-5 row mx-auto min-vh-100'>
+        <div className='container px-0 pt-5 pb-5 row mx-auto min-vh-100 animate__animated animate__fadeIn'>
             <div>
                 <h2 className={`mb-4 text-center ${theme ? 'text-white' : 'text-dark'}`}>Add your task here</h2>
                 <form onSubmit={handleSubmit(handleAddTask)} className={`w-75 w-sm-50 mx-auto rounded-3 p-4 p-md-5 ${bgTheme}`}>

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import 'animate.css';
 
 const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
     const { _id, title, details } = task;
@@ -38,7 +39,7 @@ const CompletedTask = ({ task, handleDelete, handleNotCompleted }) => {
     }
 
     return (
-        <div className={`${bgTheme} p-0 mx-auto my-3`}>
+        <div className={`${bgTheme} p-0 mx-auto my-3 animate__animated animate__fadeInLeft`}>
             <div className={`task-body ${theme ? 'text-white' : 'text-black'}`}>
                 <div className='task-title'>{title}</div>
                 <div className='task-details'>{

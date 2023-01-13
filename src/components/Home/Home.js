@@ -7,6 +7,8 @@ import img from '../../assets/home-image.jpg'
 import { AuthContext } from '../../context/AuthProvider';
 import { useTitle } from '../../hooks/useTitle';
 import Loader from '../Loader/Loader';
+import 'animate.css';
+import "animate.css/animate.min.css";
 
 const Home = () => {
     const { theme } = useContext(AuthContext)
@@ -28,8 +30,8 @@ const Home = () => {
             <div className='w-100 row py-5 mx-0'>
                 <div className='col-lg-6 col-md-12 mb-5 px-0 ps-5 d-flex align-items-center'>
                     <h1 className={`fw-bold ms-sm-5 mb-0 ${theme ? 'text-white' : 'text-dark'}`}>
-                        <span className='span'>Hi!</span> <br />
-                        <span className='span'>Welcome to</span>  <br />
+                        <p className='span animate__animated animate__bounceInDown'>Hi!</p> <br />
+                        <p className='span animate__animated animate__bounceInRight'>Welcome to</p>  <br />
                         <div className='section-title'>
                             <TypeAnimation
                                 sequence={[

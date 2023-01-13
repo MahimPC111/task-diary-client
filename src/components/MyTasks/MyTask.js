@@ -5,6 +5,7 @@ import { MdAssignmentTurnedIn } from 'react-icons/md';
 import { AiFillFile } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import 'animate.css';
 
 const MyTask = ({ task, handleDelete, handleCompleted }) => {
     const { _id, title, details } = task;
@@ -13,7 +14,7 @@ const MyTask = ({ task, handleDelete, handleCompleted }) => {
     const bgTheme = theme ? 'task-card2' : 'task-card';
 
     return (
-        <div className={`${bgTheme} p-0 mx-auto my-3`}>
+        <div className={`${bgTheme} p-0 mx-auto my-3 animate__animated animate__fadeInLeft`}>
             <div className={`task-body ${theme ? 'text-white' : 'text-black'}`}>
                 <div className='task-title'>{title}</div>
                 <div className='task-details'>{

@@ -7,6 +7,7 @@ import { useTitle } from '../../hooks/useTitle';
 import Loader from '../Loader/Loader';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'animate.css';
 
 const Media = () => {
     useTitle('Media');
@@ -27,7 +28,7 @@ const Media = () => {
                             allTasks.map(task => {
                                 return (
                                     <div key={task._id}>
-                                        <div className='border border-1 rounded-2 my-3 media-card'>
+                                        <div className='border border-1 rounded-2 my-3 media-card animate__animated animate__fadeInUp'>
                                             <div className='media-card-image'>
                                                 <PhotoProvider>
                                                     <div>
