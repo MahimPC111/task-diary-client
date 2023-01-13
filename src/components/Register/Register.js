@@ -9,6 +9,7 @@ import { useTitle } from '../../hooks/useTitle';
 import { FaRegEye } from 'react-icons/fa';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import 'animate.css';
 
 
 const Register = () => {
@@ -58,7 +59,7 @@ const Register = () => {
 
     return (
         <div className='min-vh-100'>
-            <div className="container px-3 py-5 p-sm-5 row mx-auto">
+            <div className="container px-3 py-5 p-sm-5 row mx-auto animate__animated animate__fadeIn">
                 <div className='col-lg-6 col-md-12 d-blick d-lg-none mb-5'>
                     <img src={img} alt='' className="img-fluid" />
                 </div>

@@ -12,6 +12,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { useTitle } from '../../hooks/useTitle';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import 'animate.css';
 
 const Login = () => {
     useTitle('Login');
@@ -81,7 +82,7 @@ const Login = () => {
 
     return (
         <div className='min-vh-100'>
-            <div className="container px-3 py-5 p-sm-5 row mx-auto">
+            <div className="container px-3 py-5 p-sm-5 row mx-auto animate__animated animate__fadeIn">
                 <div className='col-lg-6 col-md-12 mb-5 mb-lg-0'>
                     <img src={img} alt='' className="img-fluid my-lg-3" />
                 </div>
