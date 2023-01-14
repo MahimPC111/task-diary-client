@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap');
-
-.error-body {
-    padding: 30px 0;
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,17 +8,20 @@
     overflow: hidden;
 }
 
+h2 {
+    color: #fff;
+    margin-top: 12px;
+}
 
-.error-body p {
+p {
     color: #fff;
     font-size: 16px;
     text-align: center;
-    filter: drop-shadow(0 0 5px rgb(204, 204, 204));
 }
 
-.error-body button {
+button {
     margin-top: 20px;
-    padding: 15px 25px;
+    padding: 20px 30px;
     border: 1px solid #d84315;
     background: none;
     outline: none;
@@ -29,10 +29,9 @@
     color: #d84315;
     transition: .2s all;
     cursor: pointer;
-    transition: all 1s ease;
 }
 
-.error-body button:hover {
+button:hover {
     background: #d84315;
     color: #fff;
-}
+} */
